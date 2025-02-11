@@ -6,7 +6,7 @@
 /*   By: ewu <ewu@student.42heilbronn.de>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 11:38:59 by ewu               #+#    #+#             */
-/*   Updated: 2025/02/09 12:40:54 by ewu              ###   ########.fr       */
+/*   Updated: 2025/02/11 13:38:49 by ewu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ class Fixed
 {
 private:
 	int x;//store fixed-point number value
-	static const int y;//store number of fractional bits
+	static const int y = 8;
+//store number of fractional bits
+//the number is stored as: whole_nbr * 2^8 + y(faction part)
 public:
 	Fixed();
 //create copy of constructor: myClass(const myClass& other)

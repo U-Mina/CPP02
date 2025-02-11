@@ -6,7 +6,7 @@
 /*   By: ewu <ewu@student.42heilbronn.de>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 11:57:52 by ewu               #+#    #+#             */
-/*   Updated: 2025/02/11 11:57:55 by ewu              ###   ########.fr       */
+/*   Updated: 2025/02/11 13:40:53 by ewu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,19 @@
 class Fixed
 {
 private:
-	int x;//store fixed-point number value
-	static const int y;//store number of fractional bits
+	int x;
+	static const int y = 8;
 public:
 	Fixed();
-//create copy of constructor: myClass(const myClass& other)
-//take a const REF of constructor using '&'
+	Fixed(const int z);//converts to corresponding fixed-point val
+	Fixed(const float alpha);//to corresponding fixed-point val
 	Fixed(const Fixed& other);
-//assign val of one Fixed OBJ to another Fixed OBJ
 	Fixed& operator=(const Fixed& other);
 	~Fixed();
+	
+	float toFloat(void) const;//fixed-point to float-pont, by /2^8
+	int toInt(void) const;//fixed-point to int, shift right 8 bits(rm fraction part)
+	
 	int getRawBits(void) const;
 	void setRawBits(int const raw);	
 };
